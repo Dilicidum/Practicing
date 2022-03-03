@@ -42,5 +42,27 @@ namespace Application.Services
             Console.WriteLine($"Result sum is {Result_Sum}");
             return Result_Sum;
         }
+
+        public int Task6(DataStructure<int> dataStructure, int amountOfNumbers)
+        {
+            for(int i = 1; i <= amountOfNumbers; i++)
+            {
+                dataStructure.Add(i);
+            }
+
+            int SquareOfSum = 0;
+            int SumOfSquares = 0;
+            for(int i = 0; i < dataStructure.Length; i++)
+            {
+                SquareOfSum += dataStructure.Head.Value;
+                SumOfSquares += (Int32)Math.Pow(dataStructure.Head.Value,2);
+                dataStructure.Head = dataStructure.Head.Next;
+            }
+            SquareOfSum = (Int32)(Math.Pow(SquareOfSum, 2));
+
+            var res = SquareOfSum- SumOfSquares;
+
+            return res;
+        }
     }
 }

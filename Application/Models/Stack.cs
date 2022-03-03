@@ -19,6 +19,7 @@ namespace Application.Models
 
         public override void Add(T value)
         {
+            
             Node<T> node = new Node<T>(value);
             if( Head == null)
             {
@@ -31,6 +32,7 @@ namespace Application.Models
                 Head.Next = temp;
             }
             Head = node;
+            base.Add(value);
         }
 
         public override void Remove(T value)
@@ -40,7 +42,8 @@ namespace Application.Models
 
         public override void RemoveLast()
         {
-            Head = Head.Next;   
+            Head = Head.Next;
+            base.RemoveLast();
         }
     }
 }

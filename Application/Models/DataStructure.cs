@@ -25,17 +25,17 @@ namespace Application.Models
 
         public virtual void Add(T value)
         {
-
+            Length++;
         }
 
         public virtual void Remove(T value)
         {
-
+            
         }
 
         public virtual void RemoveLast()
         {
-            Head = Head.Next;
+            Length--;
         }
 
         public virtual void Iterate()
@@ -48,6 +48,8 @@ namespace Application.Models
                 Head = Head.Next;
             }
         }
+
+        public int Length { get; set; }
     }
 
 
